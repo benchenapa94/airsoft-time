@@ -24,11 +24,11 @@ while True:
     if not button1.value:
         os.system('omxplayer bp.mp3 &')
         os.system('omxplayer bomb.mp3 &')
-        os.system('echo p > t rm t')
+        omxprocess.stdin.write('q')
         print('--- Cleared all existing mp3s. ---')
 
     if not button2.value:
         os.system('omxplayer bd.mp3 &')
-        os.system('echo p > t rm t')
+        omxprocess.stdin.write('q')
         print('--- Cleared all existing mp3s. ---')
     time.sleep(.25)
