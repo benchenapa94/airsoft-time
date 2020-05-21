@@ -17,18 +17,18 @@ button2 = digitalio.DigitalInOut(board.D24)
 button2.direction = digitalio.Direction.INPUT
 button2.pull = digitalio.Pull.UP
 while True:
-
+global playProcess
     # omxplayer -o local <file>
     # omxplayer -o hdmi <file>
     # omxplayer -o both <file>
     if not button1.value:
-        os.system('omxplayer bp.mp3 &')
-        os.system('omxplayer bomb.mp3 &')
-        omxprocess.stdin.write('q')
-        print('--- Cleared all existing mp3s. ---')
+playProcess=subprocess.Popen(['omxplayer','/bp.mp3'],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE, close_fds=True)
+time.sleep(10)
+playProcess.stdin.write('q')print('--- Cleared all existing mp3s. ---')
 
     if not button2.value:
-        os.system('omxplayer bd.mp3 &')
-        omxprocess.stdin.write('q')
-        print('--- Cleared all existing mp3s. ---')
+        playProcess=subprocess.Popen(['omxplayer','/bd.mp3'],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE, close_fds=True)
+time.sleep(10)
+playProcess.stdin.write('q')print('--- Cleared all existing mp3s. ---')
+
     time.sleep(.25)
