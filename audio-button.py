@@ -23,7 +23,7 @@ global playProcess
     # omxplayer -o both <file>
     if not button1.value:
 
-os.system('dbuscontrol.sh stop')
+os.system('dbuscontrol.sh pause')
 sleep(3)
 os.system('omxplayer -o local bp.mp3 &')
 print("planted")
@@ -32,7 +32,7 @@ print("siren started")
 os.system('omxplayer -o local bomb.mp3 &')
 
     if not button2.value:
-os.system('dbuscontrol.sh stop')
+os.system('dbuscontrol.sh pause')
 sleep(3)
         os.system('omxplayer -o local bd.mp3 &')
 
