@@ -22,17 +22,18 @@ global playProcess
     # omxplayer -o hdmi <file>
     # omxplayer -o both <file>
     if not button1.value:
-os.system('omxplayer bp.mp3 &')
-os.system('omxplayer bomb.mp3 &')
-if __name__ == '__main__':
-    audio-button()
-    os.execv(__file__, sys.argv)
 
+os.system('dbuscontrol.sh stop')
+sleep(3)
+os.system('omxplayer -o local bp.mp3 &')
+print("planted")
+sleep(3)
+print("siren started")
+os.system('omxplayer -o local bomb.mp3 &')
 
     if not button2.value:
-        os.system('omxplayer bd.mp3 &')
-if __name__ == '__main__':
-    audio-button()
-    os.execv(__file__, sys.argv)
+os.system('dbuscontrol.sh stop')
+sleep(3)
+        os.system('omxplayer -o local bd.mp3 &')
 
     time.sleep(.25)
